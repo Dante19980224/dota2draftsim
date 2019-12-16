@@ -1,0 +1,11 @@
+{
+  "name": "dotadraft",
+  "version": "1.0.0",
+  "description": "One person draft",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dante",
+  "license": "ISC"
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dota 2 draft</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        var next_select;
+        var selected_id;
+        function colorChanger(el){
+            el.style.backgroundColor = '#007d00';
+        }
+        window.onload = function() {
+            next_select = 1;
+            document.getElementById("d1").classList.add("currbp");
+            var anchors = document.getElementsByClassName("brightness");
+            for(var i = 0; i < anchors.length; i++) {
+                var anchor = anchors[i];
+                anchor.onclick = function() {
+                    // colorChanger(this);
+                    if (!$(this).hasClass("selected") && next_select < 23) {
+                        selected_id = this.id;
+                        show("hero_select", this);
+                    }
+                }
+            }
+        }
+        function myFunction() {
+            var x = document.getElementById("xddd").rows[0].cells.length;
+            document.getElementById("xddd").innerHTML = "Found " + x + " cells in the first tr element.";
+        }
+        function show(id, param_div_id) {
+            document.getElementById(id).innerHTML = param_div_id.innerHTML;
+            document.getElementById("d"+next_select.toString()).innerHTML = param_div_id.innerHTML
+        }
+        function select(){
+            if ($("#hero_select").find('img').length) {
+                var ele = document.getElementById(selected_id);
+                // make image black and white after selected
+                ele.classList.add("selected");
+                // make image in drafting box not black and white
+                document.getElementById("d"+next_select.toString()).classList.remove("pending", "currbp");
+                // empty the select box and show prompt
+                document.getElementById("hero_select").innerHTML = "selecc hero";
+                next_select++;
+                document.getElementById("d"+next_select.toString()).classList.add("currbp");
+            }
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+  	<header>
+        <h1>Dota 2 drafting sim</h1>
+		<h2>radiant first pick</h2>
+	</header>
+    <main>
+        <table>
+            <tr>
+                <th colspan="20" bgcolor="red">Strength</th>
+            </tr>
+            <tr>
+                <td><div id="abaddon" class="brightness"><img src="images/abaddon_hphover.png" alt="abaddon"></div></td>
+                <td><div id="alch" class="brightness"><img src="images/alchemist_hphover.png" alt="alchemist"></div></td>
+                <td><div id="axe" class="brightness"><img src="images/axe_hphover.png" alt="axe"></div></td>
+                <td><div id="bm" class="brightness"><img src="images/beastmaster_hphover.png" alt="beastmaster"></div></td>
+                <td><div id="brew" class="brightness"><img src="images/brewmaster_hphover.png" alt="brewmaster"></div></td>
+                <td><div id="bristle" class="brightness"><img src="images/bristleback_hphover.png" alt="bristleback"></div></td>
+                <td><div id="centaur" class="brightness"><img src="images/centaur_hphover.png" alt="centaur_warruner"></div></td>
+                <td><div id="ck" class="brightness"><img src="images/chaos_knight_hphover.png" alt="chaos_knight"></div></td>
+                <td><div id="clock" class="brightness"><img src="images/rattletrap_hphover.png" alt="clockwerk"></div></td>
+                <td><div id="doom" class="brightness"><img src="images/doom_bringer_hphover.png" alt="doom"></div></td>
+                <td><div id="dk" class="brightness"><img src="images/dragon_knight_hphover.png" alt="dragon_knight"></div></td>
+                <td><div id="es" class="brightness"><img src="images/earth_spirit_hphover.png" alt="earth_spirit"></div></td>
+                <td><div id="shaker" class="brightness"><img src="images/earthshaker_hphover.png" alt="earthshaker"></div></td>
+                <td><div id="et" class="brightness"><img src="images/elder_titan_hphover.png" alt="elder_titan"></div></td>
+                <td><div id="huskar" class="brightness"><img src="images/huskar_hphover.png" alt="huskar"></div></td>
+                <td><div id="io" class="brightness"><img src="images/wisp_hphover.png" alt="io"></div></td>
+                <td><div id="kunkka" class="brightness"><img src="images/kunkka_hphover.png" alt="kunkka"></div></td>
+                <td><div id="lc" class="brightness"><img src="images/legion_commander_hphover.png" alt="legion_commander"></div></td>
+                <td><div id="ls" class="brightness"><img src="images/life_stealer_hphover.png" alt="lifestealer"></div></td>
+                <td><div id="lycan" class="brightness"><img src="images/lycan_hphover.png" alt="lycan"></div></td>
+                <td><div id="mag" class="brightness"><img src="images/magnataur_hphover.png" alt="magnus"></div></td>
+                <td><div id="mars" class="brightness"><img src="images/mars_hphover.png" alt="mars"></div></td>
+                <td><div id="ns" class="brightness"><img src="images/night_stalker_hphover.png" alt="night_stalker"></div></td>
+            </tr>
+            <tr>
+                <td><div id="omni" class="brightness"><img src="images/omniknight_hphover.png" alt="omniknight"></div></td>
+                <td><div id="phoenix" class="brightness"><img src="images/phoenix_hphover.png" alt="phoenix"></div></td>
+                <td><div id="pudge" class="brightness"><img src="images/pudge_hphover.png" alt="pudge"></div></td>
+                <td><div id="sk" class="brightness"><img src="images/sand_king_hphover.png" alt="sand_king"></div></td>
+                <td><div id="slardar" class="brightness"><img src="images/slardar_hphover.png" alt="slardar"></div></td>
+                <td><div id="snapfire" class="brightness"><img src="images/snapfire_hphover.png" alt="snapfire"></div></td>
+                <td><div id="sb" class="brightness"><img src="images/spirit_breaker_hphover.png" alt="spirit_breaker"></div></td>
+                <td><div id="sven" class="brightness"><img src="images/sven_hphover.png" alt="sven"></div></td>
+                <td><div id="tide" class="brightness"><img src="images/tidehunter_hphover.png" alt="tidehunter"></div></td>
+                <td><div id="timber" class="brightness"><img src="images/shredder_hphover.png" alt="timbersaw"></div></td>
+                <td><div id="tiny" class="brightness"><img src="images/tiny_hphover.png" alt="tiny"></div></td>
+                <td><div id="tree" class="brightness"><img src="images/treant_hphover.png" alt="treant_protector"></div></td>
+                <td><div id="tusk" class="brightness"><img src="images/tusk_hphover.png" alt="tusk"></div></td>
+                <td><div id="underlord" class="brightness"><img src="images/abyssal_underlord_hphover.png" alt="underlord"></div></td>
+                <td><div id="undying" class="brightness"><img src="images/undying_hphover.png" alt="undying"></div></td>
+                <td><div id="wk" class="brightness"><img src="images/skeleton_king_hphover.png" alt="wraith_king"></div></td>
+            </tr>
+            <tr>
+                <th colspan="20" bgcolor="green">Agility</th>
+            </tr>
+            <tr>
+                <td><div id="am" class="brightness"><img src="images/antimage_hphover.png" alt="antimage"></div></td>
+                <td><div id="arc" class="brightness"><img src="images/arc_warden_hphover.png" alt="arc_warden"></div></td>
+                <td><div id="bs" class="brightness"><img src="images/bloodseeker_hphover.png" alt="bloodseeker"></div></td>
+                <td><div id="bh" class="brightness"><img src="images/bounty_hunter_hphover.png" alt="bounty_hunter"></div></td>
+                <td><div id="brood" class="brightness"><img src="images/broodmother_hphover.png" alt="broodmother"></div></td>
+                <td><div id="clinkz" class="brightness"><img src="images/clinkz_hphover.png" alt="clinkz"></div></td>
+                <td><div id="drow" class="brightness"><img src="images/drow_ranger_hphover.png" alt="drow_ranger"></div></td>
+                <td><div id="ember" class="brightness"><img src="images/ember_spirit_hphover.png" alt="ember_spirit"></div></td>
+                <td><div id="void" class="brightness"><img src="images/faceless_void_hphover.png" alt="faceless_void"></div></td>
+                <td><div id="gyro" class="brightness"><img src="images/gyrocopter_hphover.png" alt="gyrocopter"></div></td>
+                <td><div id="jugg" class="brightness"><img src="images/juggernaut_hphover.png" alt="juggernaut"></div></td>
+                <td><div id="ld" class="brightness"><img src="images/lone_druid_hphover.png" alt="lone_druid"></div></td>
+                <td><div id="luna" class="brightness"><img src="images/luna_hphover.png" alt="luna"></div></td>
+                <td><div id="medusa" class="brightness"><img src="images/medusa_hphover.png" alt="medusa"></div></td>
+                <td><div id="meepo" class="brightness"><img src="images/meepo_hphover.png" alt="meepo"></div></td>
+                <td><div id="mirana" class="brightness"><img src="images/mirana_hphover.png" alt="mirana"></div></td>
+                <td><div id="mk" class="brightness"><img src="images/monkey_king_hphover.png" alt="monkey_king"></div></td>
+                <td><div id="morph" class="brightness"><img src="images/morphling_hphover.png" alt="morphling"></div></td>
+                <td><div id="naga" class="brightness"><img src="images/naga_siren_hphover.png" alt="naga_siren"></div></td>
+                <td><div id="nyx" class="brightness"><img src="images/nyx_assassin_hphover.png" alt="nyx_assassin"></div></td>
+                <td><div id="pango" class="brightness"><img src="images/pangolier_hphover.png" alt="pangolier"></div></td>
+                <td><div id="pa" class="brightness"><img src="images/phantom_assassin_hphover.png" alt="phantom_assassin"></div></td>
+                <td><div id="pl" class="brightness"><img src="images/phantom_lancer_hphover.png" alt="phantom_lancer"></div></td>
+            </tr>
+            <tr>
+                <td><div id="razor" class="brightness"><img src="images/razor_hphover.png" alt="razor"></div></td>
+                <td><div id="riki" class="brightness"><img src="images/riki_hphover.png" alt="riki_hphover"></div></td>
+                <td><div id="sf" class="brightness"><img src="images/nevermore_hphover.png" alt="shadow_fiend"></div></td>
+                <td><div id="slark" class="brightness"><img src="images/slark_hphover.png" alt="slark"></div></td>
+                <td><div id="sniper" class="brightness"><img src="images/sniper_hphover.png" alt="sniper"></div></td>
+                <td><div id="spectre" class="brightness"><img src="images/spectre_hphover.png" alt="spectre"></div></td>
+                <td><div id="ta" class="brightness"><img src="images/templar_assassin_hphover.png" alt="templar_assassin"></div></td>
+                <td><div id="tb" class="brightness"><img src="images/terrorblade_hphover.png" alt="terrorblade"></div></td>
+                <td><div id="troll" class="brightness"><img src="images/troll_warlord_hphover.png" alt="troll_warlord"></div></td>
+                <td><div id="ursa" class="brightness"><img src="images/ursa_hphover.png" alt="ursa"></div></td>
+                <td><div id="vs" class="brightness"><img src="images/vengefulspirit_hphover.png" alt="vengeful_spirit"></div></td>
+                <td><div id="veno" class="brightness"><img src="images/venomancer_hphover.png" alt="venomancer"></div></td>
+                <td><div id="viper" class="brightness"><img src="images/viper_hphover.png" alt="viper"></div></td>
+                <td><div id="weaver" class="brightness"><img src="images/weaver_hphover.png" alt="weaver"></div></td>
+            </tr>
+            <tr>
+                <th colspan="20" bgcolor="blue">Intelligence</th>
+            </tr>
+            <tr>
+                <td><div id="aa" class="brightness"><img src="images/ancient_apparition_hphover.png" alt="ancient_apparition"></div></td>
+                <td><div id="bane" class="brightness"><img src="images/bane_hphover.png" alt="bane"></div></td>
+                <td><div id="bat" class="brightness"><img src="images/batrider_hphover.png" alt="batrider"></div></td>
+                <td><div id="chen" class="brightness"><img src="images/chen_hphover.png" alt="chen"></div></td>
+                <td><div id="cm" class="brightness"><img src="images/crystal_maiden_hphover.png" alt="crystal_maiden"></div></td>
+                <td><div id="ds" class="brightness"><img src="images/dark_seer_hphover.png" alt="dark_seer"></div></td>
+                <td><div id="dw" class="brightness"><img src="images/dark_willow_hphover.png" alt="dark_willow"></div></td>
+                <td><div id="dazzle" class="brightness"><img src="images/dazzle_hphover.png" alt="dazzle"></div></td>
+                <td><div id="dp" class="brightness"><img src="images/death_prophet_hphover.png" alt="death_prophet"></div></td>
+                <td><div id="distuptor" class="brightness"><img src="images/disruptor_hphover.png" alt="disruptor"></div></td>
+                <td><div id="ench" class="brightness"><img src="images/enchantress_hphover.png" alt="enchantress"></div></td>
+                <td><div id="enigma" class="brightness"><img src="images/enigma_hphover.png" alt="enigma"></div></td>
+                <td><div id="grim" class="brightness"><img src="images/grimstroke_hphover.png" alt="grimstroke"></div></td>
+                <td><div id="invoker" class="brightness"><img src="images/invoker_hphover.png" alt="invoker"></div></td>
+                <td><div id="jakiro" class="brightness"><img src="images/jakiro_hphover.png" alt="jakiro"></div></td>
+                <td><div id="kotl" class="brightness"><img src="images/keeper_of_the_light_hphover.png" alt="keeper_of_the_light"></div></td>
+                <td><div id="lesh" class="brightness"><img src="images/leshrac_hphover.png" alt="leshrac"></div></td>
+                <td><div id="lich" class="brightness"><img src="images/lich_hphover.png" alt="lich"></div></td>
+                <td><div id="lina" class="brightness"><img src="images/lina_hphover.png" alt="lina"></div></td>
+                <td><div id="lion" class="brightness"><img src="images/lion_hphover.png" alt="lion"></div></td>
+                <td><div id="np" class="brightness"><img src="images/furion_hphover.png" alt="natures_prophet"></div></td>
+                <td><div id="necro" class="brightness"><img src="images/necrolyte_hphover.png" alt="necrophos"></div></td>
+                <td><div id="ogre" class="brightness"><img src="images/ogre_magi_hphover.png" alt="ogre_magi"></div></td>
+            </tr>
+            <tr>
+                <td><div id="oracle" class="brightness"><img src="images/oracle_hphover.png" alt="oracle"></div></td>
+                <td><div id="od" class="brightness"><img src="images/obsidian_destroyer_hphover.png" alt="outworld_devourer"></div></td>
+                <td><div id="puck" class="brightness"><img src="images/puck_hphover.png" alt="puck"></div></td>
+                <td><div id="pugna" class="brightness"><img src="images/pugna_hphover.png" alt="pugna"></div></td>
+                <td><div id="qop" class="brightness"><img src="images/queenofpain_hphover.png" alt="queen_of_pain"></div></td>
+                <td><div id="rubick" class="brightness"><img src="images/rubick_hphover.png" alt="rubick"></div></td>
+                <td><div id="sd" class="brightness"><img src="images/shadow_demon_hphover.png" alt="shadow_demon"></div></td>
+                <td><div id="ss" class="brightness"><img src="images/shadow_shaman_hphover.png" alt="shadow_shaman"></div></td>
+                <td><div id="silencer" class="brightness"><img src="images/silencer_hphover.png" alt="silencer"></div></td>
+                <td><div id="sky" class="brightness"><img src="images/skywrath_mage_hphover.png" alt="skywraith_mage"></div></td>
+                <td><div id="storm" class="brightness"><img src="images/storm_spirit_hphover.png" alt="storm_spirit"></div></td>
+                <td><div id="techies" class="brightness"><img src="images/techies_hphover.png" alt="techies"></div></td>
+                <td><div id="tinker" class="brightness"><img src="images/tinker_hphover.png" alt="tinker"></div></td>
+                <td><div id="visage" class="brightness"><img src="images/visage_hphover.png" alt="visage"></div></td>
+                <td><div id="voidspirit" class="brightness"><img src="images/void_spirit_hphover.png" alt="void_spirit"></div></td>
+                <td><div id="warlock" class="brightness"><img src="images/warlock_hphover.png" alt="warlock"></div></td>
+                <td><div id="wr" class="brightness"><img src="images/windrunner_hphover.png" alt="windranger"></div></td>
+                <td><div id="ww" class="brightness"><img src="images/winter_wyvern_hphover.png" alt="winter_wyvern"></div></td>
+                <td><div id="wd" class="brightness"><img src="images/witch_doctor_hphover.png" alt="witch_doctor"></div></td>
+                <td><div id="zeus" class="brightness"><img src="images/zuus_hphover.png" alt="zeus"></div></td>
+            </tr>
+        </table>
+        <br>
+        <div class="draftbox">
+            <div class="floatleft">
+                <table class="banselect">
+                    <tr>
+                        <td>
+                            <div id="hero_select">selecc hero</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><button id="button" onclick="select()">select</button></div>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="floatright">
+                <table class="banselect">
+                    <th>Dire Ban</th>
+                    <tr id="dire_ban" class="bans">
+                        <td><div id="d2" class="pending"></div></td>
+                        <td><div id="d4" class="pending"></div></td>
+                        <td><div id="d6" class="pending"></div></td>
+                        <td><div id="d12" class="pending"></div></td>
+                        <td><div id="d14" class="pending"></div></td>
+                        <td><div id="d19" class="pending"></div></td>
+                    </tr>
+                    <th>Dire Pick</th>
+                    <tr id="dire_pick">
+                        <td><div id="d8" class="pending"></div></td>
+                        <td><div id="d9" class="pending"></div></td>
+                        <td><div id="d15" class="pending"></div></td>
+                        <td><div id="d17" class="pending"></div></td>
+                        <td><div id="d22" class="pending"></div></td>
+                    </tr>
+                    <th>Radiant Pick</th>
+                    <tr id="radiant_pick">
+                        <td><div id="d7" class="pending"></div></td>
+                        <td><div id="d10" class="pending"></div></td>
+                        <td><div id="d16" class="pending"></div></td>
+                        <td><div id="d18" class="pending"></div></td>
+                        <td><div id="d21" class="pending"></div></td>
+                    </tr>
+                    <th>Radiant Ban</th>
+                    <tr id="radiant_ban" class="bans">
+                        <td><div id="d1" class="pending"></div></td>
+                        <td><div id="d3" class="pending"></div></td>
+                        <td><div id="d5" class="pending"></div></td>
+                        <td><div id="d11" class="pending"></div></td>
+                        <td><div id="d13" class="pending"></div></td>
+                        <td><div id="d20" class="pending"></div></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <div id="container">
+            <div class="brightness">
+                <img  src="https://vignette.wikia.nocookie.net/spongebob/images/d/d7/SpongeBob_stock_art.png/revision/latest?cb=20190604110949" />
+            </div>
+        </div>
+    </main>
+  </body>
+</html>
